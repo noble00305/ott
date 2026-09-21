@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="dark"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>작품 찾기 — 한국 넷플릭스 순위 기록</title>
+<meta name="description" content="한국 넷플릭스 TOP10 작품 검색">
+<link rel="stylesheet" href="style.css">
+<link rel="canonical" href="https://noble00305.github.io/ott/search.html">
+</head><body class="detail">
+<header><div class="wrap">
+<h1><a href="index.html">한국 OTT 기록</a></h1>
+<p class="sub">272주 기록 · 94개국</p>
+<nav><a href="index.html">이번 주</a><a href="ott.html">OTT별</a><a href="search.html" aria-current="page">작품 찾기</a><a href="records.html">기록</a><a href="global.html">세계</a><a href="prices.html" class="nav-price">요금·할인</a></nav>
+</div></header>
+<div class="wrap"><h2>작품 찾기<span class="n">1,559편 + 순위 밖 3,833편</span></h2><p class="lead">한국 넷플릭스 TOP10 에 오른 작품 전부와, 한국 OTT 에서 볼 수 있는 인기작을 찾습니다. 이름으로 찾거나 조건만 골라 둘러보세요. 제공처는 JustWatch 자료이며 확인일은 작품 화면에 있습니다.</p><label class="note" for="q">작품 이름 (한글 또는 영문)</label><input type="search" id="q" placeholder="작품 이름 (한글 또는 영문)" autocomplete="off"><div class="filters" role="group" aria-label="조건"><select id="fc" aria-label="매체"><option value="">매체 전체</option><option value="TV">시리즈</option><option value="Films">영화</option></select><select id="fg" aria-label="장르"><option value="">장르 전체</option><option value="드라마">드라마</option><option value="코미디">코미디</option><option value="스릴러">스릴러</option><option value="범죄">범죄</option><option value="액션">액션</option><option value="로맨스">로맨스</option><option value="공포">공포</option><option value="SF/판타지">SF/판타지</option><option value="애니메이션">애니메이션</option><option value="다큐멘터리">다큐멘터리</option><option value="예능">예능</option><option value="가족">가족</option><option value="미스터리">미스터리</option><option value="모험">모험</option></select><select id="fv" aria-label="제공처"><option value="">제공처 전체</option><option value="넷플릭스">넷플릭스</option><option value="디즈니+">디즈니+</option><option value="티빙">티빙</option><option value="웨이브">웨이브</option><option value="쿠팡플레이">쿠팡플레이</option><option value="왓챠">왓챠</option><option value="애플TV+">애플TV+</option><option value="프라임비디오">프라임비디오</option></select><select id="fr" aria-label="길이"><option value="">길이 전체</option><option value="120">영화 2시간 미만</option><option value="100">영화 100분 미만</option></select><button type="button" id="fclear" hidden>조건 해제</button></div><p class="count" id="count" aria-live="polite"></p><div id="hits" role="status" aria-live="polite"><p class="state">검색 자료를 불러오는 중입니다.</p></div><footer class="src"><a href="credits.html">출처·집계 기준</a> · <a href="https://www.netflix.com/tudum/top10">Netflix TOP 10</a> · <a href="https://www.themoviedb.org">TMDB</a><span class="generated">생성 2026-09-21</span></footer></div>
+<script>
+(function(){
+var i=document.getElementById('q'),h=document.getElementById('hits'),D=[],state='loading';
+var F={c:document.getElementById('fc'),g:document.getElementById('fg'),v:document.getElementById('fv'),
+ r:document.getElementById('fr')},clr=document.getElementById('fclear'),cnt=document.getElementById('count');
+var FAIL='검색 자료를 불러오지 못했습니다. 새로고침한 뒤 다시 시도해 주세요.';
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){
+ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+function say(t,cls){h.innerHTML='<p class="state'+(cls?' '+cls:'')+'">'+t+'</p>';cnt.textContent=''}
+fetch('works.json').then(function(r){
+  if(!r.ok)throw new Error(r.status);return r.json()})
+ .then(function(d){D=d;state='ready';run()})
+ .catch(function(){state='failed';say(FAIL,'error')});
+function has(a,x){return !!a&&a.indexOf(x)>=0}
+function pass(w){
+ if(F.c.value&&w.c!==F.c.value)return false;
+ if(F.g.value&&!has(w.g,F.g.value))return false;
+ if(F.v.value&&!has(w.v,F.v.value))return false;
+ if(F.r.value&&!(w.c==='Films'&&w.r&&w.r<+F.r.value))return false;
+ return true}
+function row(w){
+ var head='<span class="title">'+esc(w.k||w.e)+'</span> <span class="tag">'+(w.c==='TV'?'시리즈':'영화')+'</span>'+
+  (w.k&&w.k!==w.e?' <span class="en">'+esc(w.e)+'</span>':'');
+ var g=(w.g||[]).slice(0,2).join(' · ')+(w.y?(w.g&&w.g.length?' · ':'')+w.y:'')+(w.c==='Films'&&w.r?' · '+w.r+'분':'');
+ var pv='<span class="pv">'+(w.v&&w.v.length?'구독: '+esc(w.v.join(', ')):'구독 제공처 확인 안 됨')+
+  (g?' — '+esc(g):'')+'</span>';
+ if(w.u)return '<a href="works/'+w.u+'.html">'+head+pv+
+  '<span class="en">한국 넷플릭스 최고 '+w.p+'위 · '+w.n+'주 진입</span></a>';
+ return '<a href="'+esc(w.x)+'" rel="noopener noreferrer" target="_blank">'+head+pv+
+  '<span class="ext">순위 기록 없음 · 제공처 페이지(JustWatch) ↗</span></a>'}
+function run(){
+ var on=F.c.value||F.g.value||F.v.value||F.r.value;clr.hidden=!on;
+ if(state==='failed'){say(FAIL,'error');return}
+ var v=i.value.trim().toLowerCase();
+ if(state==='loading'){say(v?'검색 중입니다 — 작품 자료를 불러오는 중입니다.'
+  :'검색 자료를 불러오는 중입니다.');return}
+ if(!v&&!on){say('작품 이름을 입력하거나 조건을 고르세요. 한글·영문 모두 찾습니다.');return}
+ var r=[];
+ for(var k=0;k<D.length;k++){
+  var w=D[k];
+  if(v&&!((w.k&&w.k.toLowerCase().indexOf(v)>=0)||w.e.toLowerCase().indexOf(v)>=0))continue;
+  if(pass(w))r.push(w)}
+ if(!r.length){say((v?'「'+esc(i.value.trim())+'」와 ':'')+'일치하는 작품이 없습니다.'+(on?' 조건을 줄여 보세요.':''));return}
+ h.innerHTML=r.slice(0,60).map(row).join('');
+ cnt.textContent=r.length+'편'+(r.length>60?' 중 60편 표시 — 조건을 더 고르면 좁혀집니다':'')+
+  (v?'':' · 최근 한국 TOP10 에 든 순서, 그다음 순위 밖 인기순')}
+i.addEventListener('input',run);
+for(var n in F)F[n].addEventListener('change',run);
+clr.addEventListener('click',function(){for(var n in F)F[n].value='';run()});
+// OTT별 페이지의 「전체 보기」: search.html#v=티빙&c=Films&g=예능 → 조건을 미리 채운다
+location.hash.slice(1).split('&').forEach(function(kv){
+ var p=kv.split('='),k=p[0],v=decodeURIComponent(p[1]||'');
+ if(F[k]&&[].some.call(F[k].options,function(o){return o.value===v}))F[k].value=v});
+run();
+})();
+</script>
+</body></html>

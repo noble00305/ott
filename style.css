@@ -1,0 +1,254 @@
+
+/* 한 장으로 정리한 스타일시트.
+   ⛔ 기본 선언 뒤에 덮어쓰기 블록을 쌓지 않는다 — 폭 분기는 맨 아래
+   @media (max-width:560px) 한 곳에서만 한다. (.sp display 충돌 2026-09-21 정리) */
+:root{color-scheme:dark;
+--bg:#101318;--fg:#eff2f7;--dim:#b5bfce;--faint:#9daabd;--line:#303947;--card:#191f28;
+--accent:#91caff;--chart:#91caff;--chart-fill:#4fa4ff20;--one:#22374d;
+--up:#75d7ab;--down:#ffa39a;--new:#f6cb79}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);-webkit-text-size-adjust:100%;
+font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI","Apple SD Gothic Neo","Malgun Gothic",sans-serif}
+a{color:var(--accent)}
+a:focus-visible,input:focus-visible,summary:focus-visible{outline:2px solid var(--accent);
+outline-offset:2px;border-radius:4px}
+.wrap{max-width:920px;margin:0 auto;padding:0 16px 20px}
+/* ── 머리말·이동 ── 현재 위치는 aria-current 배경으로, 키보드 포커스는 별도 테두리로.
+   메뉴는 모두 같은 상자(투명 테두리)를 써서 「요금·할인」이 더 높아지지 않게 한다. */
+header{border-bottom:1px solid var(--line);margin-bottom:8px}
+header .wrap{display:flex;align-items:baseline;flex-wrap:wrap;gap:0 10px;
+padding-top:6px;padding-bottom:6px}
+h1{font-size:19px;line-height:1.35;margin:0;letter-spacing:-.02em}
+h1 a{color:inherit;text-decoration:none}
+.sub{color:var(--dim);font-size:12.5px;margin:0}
+nav{width:100%;display:flex;flex-wrap:wrap;gap:3px 4px;margin-top:4px;font-size:13px}
+nav a{text-decoration:none;line-height:1.5;padding:1px 8px;
+border:1px solid transparent;border-radius:99px}
+nav a:hover{text-decoration:underline}
+nav a[aria-current=page]{background:var(--one);border-color:var(--accent);font-weight:650}
+nav .nav-price{font-weight:650;border-color:var(--line)}
+h2{font-size:17px;margin:20px 0 10px;letter-spacing:-.01em}
+h2 .n{color:var(--dim);font-weight:400;font-size:12.5px;margin-left:8px}
+h3{font-size:14.5px;margin:18px 0 7px;color:var(--dim);font-weight:600}
+/* ── 표·카드·공통 조각 ── 작은 글자는 전부 12px 이상으로 둔다 ── */
+table{width:100%;border-collapse:collapse;font-size:14px}
+th{text-align:left;font-weight:600;color:var(--dim);font-size:12.5px;letter-spacing:.02em;
+padding:0 8px 8px;border-bottom:1px solid var(--line)}
+td{padding:9px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+tr:last-child td{border-bottom:none}
+.rank{width:32px;color:var(--dim);font-variant-numeric:tabular-nums;font-weight:600}
+.up{color:var(--up)}.down{color:var(--down)}.new{color:var(--new);font-weight:600}.flat{color:var(--faint)}
+.title{font-weight:600}
+.title a{color:inherit;text-decoration:none;border-bottom:1px solid transparent}
+.title a:hover{border-bottom-color:var(--accent);color:var(--accent)}
+.en{color:var(--faint);font-weight:400;font-size:12.5px}
+.meta{color:var(--dim);font-size:12.5px;text-align:right}
+.num{font-variant-numeric:tabular-nums;text-align:right;white-space:nowrap}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:2px 12px;margin-bottom:8px}
+.note{color:var(--dim);font-size:12.5px;margin:8px 0 0}
+.lead{color:var(--dim);font-size:13.5px;margin:6px 0 0}
+.src{margin-top:16px;padding-top:8px;border-top:1px solid var(--line);color:var(--faint);font-size:12px}
+.generated{margin-left:10px}
+.pager{display:flex;justify-content:space-between;gap:12px;margin:20px 0 0;font-size:13.5px}
+.pager a{text-decoration:none}
+.tag{display:inline-block;font-size:12px;padding:1px 7px;border:1px solid var(--line);
+border-radius:99px;color:var(--dim);margin-left:6px;vertical-align:1px;white-space:nowrap}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(104px,1fr));gap:6px;margin-top:10px}
+.grid a{display:block;text-align:center;padding:7px 4px;border:1px solid var(--line);border-radius:7px;
+text-decoration:none;font-size:13px;font-variant-numeric:tabular-nums;background:var(--card)}
+.grid a:hover{border-color:var(--accent)}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(124px,1fr));gap:8px;margin:14px 0 4px}
+.fact{background:var(--card);border:1px solid var(--line);border-radius:9px;padding:10px 12px;min-width:0}
+.fact .k{color:var(--dim);font-size:12px;margin-bottom:3px}
+.fact .v{font-size:19px;font-weight:650;font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+.fact .v small{font-size:12.5px;font-weight:400;color:var(--dim);margin-left:2px}
+/* 차트: 눈금·날짜는 HTML 글자라 SVG 를 줄여도 12px 아래로 내려가지 않는다 */
+.chart{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 10px 6px;margin:6px 0 4px}
+.chart svg{display:block;width:100%;height:160px}
+.plot{position:relative}
+.chart-axis{position:absolute;left:0;top:4px;bottom:14px;display:flex;flex-direction:column;
+justify-content:space-between;color:var(--dim);font-size:12px}
+.chart-dates{display:flex;justify-content:space-between;gap:8px;font-size:12px;color:var(--dim)}
+input[type=search]{width:100%;padding:10px 12px;font-size:15px;color:var(--fg);background:var(--card);
+border:1px solid var(--line);border-radius:9px;font-family:inherit}
+input[type=search]:focus{border-color:var(--accent)}
+#hits{margin-top:10px}
+#hits a{display:block;padding:9px 12px;border:1px solid var(--line);border-radius:8px;margin-bottom:5px;
+text-decoration:none;color:inherit;background:var(--card)}
+#hits a:hover{border-color:var(--accent)}
+#hits .en{display:block}
+/* 검색 중 · 결과 없음 · 자료 로딩 실패를 서로 다른 상태로 보여준다 */
+.state{color:var(--dim);font-size:13px;margin:10px 0 0}
+.state.error{color:var(--down)}
+/* ── 순위 행 ── 제목 공간부터 확보한다.
+   flex 가 제목을 임의로 줄이지 못하게 Grid 로 고정한다:
+   순위 → 포스터 → 변동 → 작품명·시즌 → 추이 → 최고 순위·누적 주수.
+   ⛔ 고정 높이·말줄임으로 제목을 잘라 합격시키지 않는다. 긴 제목은 행이 높아진다. */
+.home-title{font-size:16px;line-height:1.35;margin:2px 0 0}
+.home>.wrap{padding-bottom:10px}
+.home header{margin-bottom:0}
+.sect{font-size:13px;margin:6px 0 3px;color:var(--dim);letter-spacing:.04em}
+.rows{background:var(--card);border:1px solid var(--line);border-radius:8px;overflow:hidden;
+margin-bottom:6px}
+.row{display:grid;grid-template-columns:20px 20px 38px minmax(0,1fr) 88px 112px;gap:8px;
+align-items:center;padding:1px 10px;min-height:33px;border-bottom:1px solid var(--line);
+font-size:13.5px;line-height:1.25}
+.row:last-child{border-bottom:none}
+.row.one{min-height:39px;background:linear-gradient(90deg,var(--one),var(--card) 70%)}
+.row .r{text-align:right;color:var(--dim);font-weight:650;font-size:13px;
+font-variant-numeric:tabular-nums}
+.row.one .r{color:var(--accent);font-size:17px;font-weight:700}
+/* 포스터는 1위 행에서도 같은 크기 — 열 정렬과 행 높이를 포스터가 흔들지 않는다 */
+.row .po{width:20px;height:30px;border-radius:3px;background:var(--line);
+object-fit:cover;display:block}
+.row .po.none{background:transparent;border:1px solid var(--line)}
+.row .m{font-size:12px;white-space:nowrap}
+.row .t{min-width:0;font-weight:600;overflow-wrap:anywhere}
+.row.one .t{font-size:15px;font-weight:700;letter-spacing:-.02em}
+.row .t a{color:inherit;text-decoration:none;border-bottom:1px solid transparent}
+.row .t a:hover,.row .t a:focus-visible{color:var(--accent);border-bottom-color:var(--accent)}
+.season{color:var(--dim);font-size:12px;font-weight:400;margin-left:5px}
+.row .sp{min-width:0}
+.row .sp svg{display:block;width:100%;height:auto}
+.row .k{text-align:right;color:var(--dim);font-size:12px}
+.record-peak,.record-weeks{white-space:nowrap}
+.record-sep{color:var(--faint)}
+/* 홈 맨 아래 한 줄 — 행에 무엇이 들어 있는지와 할인 전체 보기 */
+.home-foot{display:flex;justify-content:space-between;align-items:baseline;gap:4px 12px;
+flex-wrap:wrap;margin-top:8px;padding:6px 10px;border:1px solid var(--line);
+border-radius:8px;background:var(--card);font-size:12.5px}
+.home-foot .legend{color:var(--dim)}
+.home-foot a{font-weight:650;text-decoration:none;white-space:nowrap}
+.home-foot a:hover{text-decoration:underline}
+/* ── 요금·할인 ── 실제 결제액을 가장 먼저 읽게 한다 ── */
+.anchors{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0 0;font-size:13px}
+.anchors a{text-decoration:none;padding:2px 10px;border:1px solid var(--line);
+border-radius:99px;background:var(--card)}
+.anchors a:hover{border-color:var(--accent)}
+/* 고정 레이아웃 + 줄바꿈 — 긴 출처 URL·비고가 셀 폭을 밀어내지 못한다 */
+.price-table{table-layout:fixed}
+.price-table td,.price-table th{overflow-wrap:anywhere}
+.price-table th:first-child{width:36%}
+.price-table th:nth-child(2){width:24%}
+.price-table .num{white-space:normal}
+.price-note{font-size:12.5px}
+.price-note a{display:inline-block;margin-top:3px}
+.pricebox{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:2px 12px}
+.deal-group{margin-top:16px}
+.dl{padding:9px 0;border-bottom:1px solid var(--line);min-width:0}
+.dl:last-child{border-bottom:none}
+.dl .lb{font-weight:600;font-size:14px;overflow-wrap:anywhere}
+.dl .pay{display:flex;align-items:baseline;flex-wrap:wrap;gap:2px 8px;margin-top:3px}
+.dl .amount{font-size:18px;font-weight:700;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.dl .amount.unknown{font-size:14px;font-weight:600;color:var(--faint)}
+.dl .per{font-size:12px;color:var(--dim)}
+.dl .save{font-size:13px;color:var(--up);margin-top:2px;overflow-wrap:anywhere}
+.dl .save.unknown{color:var(--faint)}
+.dl .basis{color:var(--dim);font-size:12px;margin-left:4px}
+.dl .cd{font-size:12.5px;margin-top:3px;overflow-wrap:anywhere}
+.dl .term{font-size:12.5px;color:var(--new);margin-top:2px}
+.dl .via{color:var(--dim);font-size:12px;margin-top:3px;overflow-wrap:anywhere}
+.dl .stale{color:var(--new)}
+.source-link{font-size:12px;display:inline-block;margin-top:3px}
+.relationship{display:block;font-size:12px;color:var(--faint);margin-top:2px}
+/* ── 작품 상세 ── 포스터 옆 제목은 min-width:0 이라 긴 원제가 줄바꿈된다 ── */
+.work-head{display:flex;align-items:center;gap:18px;margin:14px 0 4px}
+.work-poster{width:100px;height:150px;object-fit:cover;border-radius:8px;
+flex-shrink:0;background:var(--line)}
+.work-title{flex:1;min-width:0}
+.work-title h2{margin:0;overflow-wrap:anywhere}
+.work-title .n{overflow-wrap:anywhere}
+.tmdb-logo{display:block;margin:16px 0;width:100px;height:auto}
+.detail td,.detail th{overflow-wrap:anywhere}
+.detail .meta{white-space:normal}
+.work-meta{color:var(--dim);font-size:13px;margin:4px 0 0}
+/* ── 어디서 보나 ── 제공처 칩 → 요금·할인 해당 서비스로. 없으면 없다고 쓴다 ── */
+.watch{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin:12px 0 4px}
+.watch h3{margin:0 0 6px;color:var(--fg)}
+.chips{display:flex;flex-wrap:wrap;gap:5px}
+.chip{display:inline-block;font-size:13px;padding:2px 10px;border:1px solid var(--line);border-radius:99px;
+text-decoration:none;color:var(--fg);background:var(--bg);white-space:nowrap}
+a.chip:hover{border-color:var(--accent);color:var(--accent)}
+.chip small{color:var(--dim);font-size:12px;margin-left:3px}
+.watch .via{color:var(--dim);font-size:12px;margin-top:6px;overflow-wrap:anywhere}
+.watch .none{color:var(--faint);font-size:13.5px}
+/* ── 작품 찾기 필터 ── select 네 개 + 해제. 켜진 필터가 없으면 해제 버튼을 숨긴다 ── */
+.filters{display:grid;grid-template-columns:repeat(4,minmax(0,1fr)) auto;gap:6px;margin-top:8px}
+select{width:100%;min-width:0;padding:7px 8px;font-size:14px;color:var(--fg);background:var(--card);
+border:1px solid var(--line);border-radius:8px;font-family:inherit}
+select:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.filters button{padding:7px 10px;font-size:13px;color:var(--accent);background:transparent;
+border:1px solid var(--line);border-radius:8px;font-family:inherit;cursor:pointer;white-space:nowrap}
+.filters button[hidden]{display:none}
+#hits .pv{display:block;color:var(--dim);font-size:12.5px}
+#hits .ext{color:var(--faint);font-size:12px}
+.count{color:var(--dim);font-size:12.5px;margin:8px 0 0}
+.country-pick{display:flex;align-items:center;gap:8px;margin:8px 0}
+.country-pick label{color:var(--dim);font-size:13px;white-space:nowrap}
+.country-pick select{max-width:240px}
+/* ── OTT별 ── 서비스 카드(분류 칩) → 분류 탭 → 인기순 목록 ── */
+.ogrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:8px;margin-top:12px}
+.ocard{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 12px}
+.ocard h3{margin:0 0 8px;color:var(--fg);font-size:16px}
+.ocard h3 a{color:inherit;text-decoration:none}
+.ocard h3 a:hover{color:var(--accent)}
+.ocard h3 .n{color:var(--dim);font-weight:400;font-size:12.5px;margin-left:6px}
+.tabs{display:flex;flex-wrap:wrap;gap:4px;margin:4px 0 6px;font-size:13px}
+.tabs a{text-decoration:none;padding:2px 10px;border:1px solid var(--line);border-radius:99px;background:var(--card)}
+.tabs a[aria-current=page]{background:var(--one);border-color:var(--accent);font-weight:650}
+.olist{background:var(--card);border:1px solid var(--line);border-radius:8px;overflow:hidden;margin-top:8px}
+.orow{display:grid;grid-template-columns:24px 28px minmax(0,1fr) auto;gap:8px;align-items:center;
+padding:5px 10px;border-bottom:1px solid var(--line);text-decoration:none;color:inherit;font-size:13.5px;line-height:1.3}
+.orow:last-child{border-bottom:none}
+.orow:hover .title{color:var(--accent)}
+.orow .n{text-align:right;color:var(--dim);font-weight:650;font-size:13px;font-variant-numeric:tabular-nums}
+.orow .po{width:28px;height:42px;border-radius:3px;background:var(--line);object-fit:cover;display:block}
+.orow .po.none{background:transparent;border:1px solid var(--line)}
+.orow .ot{min-width:0;overflow-wrap:anywhere}
+.orow .om{display:block;color:var(--dim);font-size:12px;margin-top:1px}
+.orow .also{color:var(--faint)}
+.orow .rec{font-size:12px;color:var(--new);white-space:nowrap}
+.orow .ext{font-size:12px;color:var(--faint);white-space:nowrap}
+/* ── 첫 화면 대표 카테고리 ── 한 줄, 넘치면 그 줄만 가로로 민다(문서 폭은 늘지 않는다) ── */
+/* 데스크톱은 서비스·분류가 한 줄, 좁은 화면은 두 줄. 가로 스크롤을 쓰지 않는다(잘린 칩 = 안 보이는 선택지) */
+.picks{display:flex;flex-wrap:wrap;gap:4px 14px;margin:6px 0 0}
+.pick{display:flex;flex-wrap:wrap;gap:4px}
+.pick button{flex:none;font:inherit;font-size:13px;line-height:1.5;padding:1px 9px;color:var(--fg);
+background:var(--card);border:1px solid var(--line);border-radius:99px;cursor:pointer}
+.pick button[aria-pressed=true]{background:var(--one);border-color:var(--accent);color:var(--accent);font-weight:650}
+.row[hidden],.sec[hidden]{display:none}
+#alt{margin-top:6px}
+/* ── 좁은 화면 ── 이 파일에서 폭 분기는 여기 한 곳뿐이다.
+   변동·누적 주수·추이는 모바일에서도 모두 남긴다(숨기지 않는다). */
+@media (max-width:560px){
+ .wrap{padding-left:12px;padding-right:12px}
+ header .wrap{padding-top:5px;padding-bottom:5px}
+ h1{font-size:17px}.sub{font-size:12px}
+ nav{font-size:12px;gap:2px;margin-top:3px}
+ nav a{padding:1px 3px}
+ h2{font-size:16px;margin:16px 0 8px}
+ .home-title{font-size:15px}
+ /* 변동 칸은 설계값 30px 이 아니라 36px — 12px 글자로 「재진입」이 들어가야 한다 */
+ .row{grid-template-columns:16px 18px 36px minmax(0,1fr) 40px 52px;gap:4px;padding:1px 8px}
+ .row .po{width:18px;height:27px}
+ .row .t{font-size:13px}.row.one .t{font-size:14px}
+ /* 한글 제목이 있을 때만 붙는 영문 병기 — 좁은 화면에서는 뺀다 */
+ .row .t .en{display:none}
+ .season{margin-left:4px}
+ .row .k{line-height:1.25}
+ .record-peak,.record-weeks{display:block}
+ .record-sep{display:none}
+ td{padding:8px 5px}th{padding:0 5px 8px}
+ .card{padding:2px 8px}
+ .fact .v{font-size:17px}
+ .chart{padding:10px 4px 6px}.chart svg{height:150px}
+ .work-head{gap:12px}.work-poster{width:72px;height:108px}
+ .home-foot{font-size:12px;padding:6px 8px}
+ .generated{display:block;margin-left:0}
+ .filters{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .filters button{grid-column:1/-1}
+ .pick button{font-size:12.5px;padding:1px 7px}
+ /* 순위 기록 배지는 제목 아래 줄로 — 제목 폭을 먼저 확보한다 */
+ .orow{grid-template-columns:20px 28px minmax(0,1fr);gap:6px;padding:5px 8px}
+ .orow .rec,.orow .ext{grid-column:3}
+}
