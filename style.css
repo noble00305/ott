@@ -151,6 +151,7 @@ border-radius:99px;background:var(--card)}
 .dl .stale{color:var(--new)}
 .source-link{font-size:12px;display:inline-block;margin-top:3px}
 .relationship{display:block;font-size:12px;color:var(--faint);margin-top:2px}
+.dl .warn{color:var(--new)}
 /* ── 작품 상세 ── 포스터 옆 제목은 min-width:0 이라 긴 원제가 줄바꿈된다 ── */
 .work-head{display:flex;align-items:center;gap:18px;margin:14px 0 4px}
 .work-poster{width:100px;height:150px;object-fit:cover;border-radius:8px;
