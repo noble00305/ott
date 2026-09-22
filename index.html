@@ -54,7 +54,7 @@ function render(){
   return}
  need(function(){nf.hidden=true;alt.hidden=false;
   hh.textContent=H[st.ott].n+' '+(st.k==='all'?'인기작':KL[st.k]+' 인기작');
-  hn.textContent='TMDB 인기순 · 공식 순위 아님 · 제공처 JustWatch';
+  hn.textContent='한국 TOP10 든 작품 먼저 · 그다음 전 세계 인기순 · 공식 순위 아님';
   alt.innerHTML=list(st.ott,st.k)})}
 [].forEach.call(document.querySelectorAll('.pick button'),function(b){
  b.addEventListener('click',function(){if(b.dataset.ott)st.ott=b.dataset.ott;else st.k=b.dataset.kind;render()})});
