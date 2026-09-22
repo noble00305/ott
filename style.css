@@ -180,6 +180,7 @@ padding:11px 22px;border-radius:10px;text-decoration:none}
 .work-poster{width:100px;height:150px;object-fit:cover;border-radius:8px;
 flex-shrink:0;background:var(--line)}
 .work-title{flex:1;min-width:0}
+.answer{font-size:15px;line-height:1.7;margin:10px 0 12px;padding:12px 14px;background:var(--card);border-left:3px solid var(--accent);border-radius:6px}
 .work-title h2{margin:0;overflow-wrap:anywhere}
 .work-title .n{overflow-wrap:anywhere}
 .tmdb-logo{display:block;margin:16px 0;width:100px;height:auto}
