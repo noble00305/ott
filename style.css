@@ -175,6 +175,22 @@ padding:11px 22px;border-radius:10px;text-decoration:none}
 .cta:hover{filter:brightness(1.08)}
 .ph-warn{margin:12px 0 0;font-size:13px;color:var(--new)}
 .ph-disc{margin:4px 0 0;font-size:12px;color:var(--faint)}
+/* ── 요금 계산기(save.html) ── */
+.calc{padding:6px 14px 12px}
+.sv-row{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:7px 0;border-bottom:1px solid var(--line);flex-wrap:wrap}
+.sv-row label{flex:1;min-width:150px;font-size:14px}
+.sv-row select,.sv-row input[type=number]{font:inherit;font-size:14px;color:var(--fg);background:var(--bg);border:1px solid var(--line);border-radius:7px;padding:6px 8px;max-width:100%}
+.sv-row input[type=number]{width:140px}
+.sv-row select[hidden]{display:none}
+.result{margin:12px 0}
+.sum{display:grid;grid-template-columns:auto 1fr auto 1fr;gap:4px 10px;align-items:baseline;padding:12px 14px;background:var(--card);border:1px solid var(--line);border-radius:10px}
+.sum span{color:var(--dim);font-size:13px}.sum b{font-size:22px;font-variant-numeric:tabular-nums}
+#tips p{margin:8px 0 0;font-size:14px;line-height:1.6}
+.netbox{margin:14px 0;padding:16px 18px 14px;border:2px solid var(--up);border-radius:14px;background:linear-gradient(135deg,#17352b 0%,var(--card) 70%)}
+.netbox h3{margin:0 0 6px;color:var(--fg);font-size:18px}
+.netbox p{margin:0 0 12px;font-size:14.5px;line-height:1.6}
+.steps{padding-left:20px;line-height:1.7;font-size:14.5px}.steps li{margin-bottom:6px}
+@media (max-width:520px){.sum{grid-template-columns:auto 1fr}.sum b{font-size:19px}}
 /* ── 작품 상세 ── 포스터 옆 제목은 min-width:0 이라 긴 원제가 줄바꿈된다 ── */
 .work-head{display:flex;align-items:center;gap:18px;margin:14px 0 4px}
 .work-poster{width:100px;height:150px;object-fit:cover;border-radius:8px;
