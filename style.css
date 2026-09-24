@@ -191,6 +191,14 @@ padding:11px 22px;border-radius:10px;text-decoration:none}
 .netbox p{margin:0 0 12px;font-size:14.5px;line-height:1.6}
 .steps{padding-left:20px;line-height:1.7;font-size:14.5px}.steps li{margin-bottom:6px}
 @media (max-width:520px){.sum{grid-template-columns:auto 1fr}.sum b{font-size:19px}}
+.guide-body{font-size:14.5px;line-height:1.7}
+.guide-body table{width:100%;border-collapse:collapse;margin:8px 0;font-size:13.5px;display:block;overflow-x:auto}
+.guide-body th,.guide-body td{padding:7px 8px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+.faq{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:9px 12px;margin-bottom:6px}
+.faq summary{cursor:pointer;font-weight:600;font-size:14.5px}
+.faq p{margin:8px 0 0;font-size:14px;line-height:1.65;color:var(--dim)}
+.guide-list{padding-left:18px;line-height:1.9}
+.guide-src{font-size:12.5px;color:var(--dim);padding-left:18px}
 /* ── 작품 상세 ── 포스터 옆 제목은 min-width:0 이라 긴 원제가 줄바꿈된다 ── */
 .work-head{display:flex;align-items:center;gap:18px;margin:14px 0 4px}
 .work-poster{width:100px;height:150px;object-fit:cover;border-radius:8px;
