@@ -261,6 +261,15 @@ a.chip:hover{border-color:var(--accent);color:var(--accent)}
 .watch .cheap ol{margin:4px 0 0;padding-left:20px}
 .watch .cheap li{margin:2px 0}
 .ph-alt{display:inline-block;margin:10px 0 0 4px;font-weight:650}
+/* ── 이번 주 뭐 볼까(choose.html) — 카드 한 장 = 순위·제목 / 확인된 사실 / 미리보기 / 볼 수 있는 곳 ── */
+.ch-card{display:grid;grid-template-columns:54px minmax(0,1fr);gap:10px;background:var(--card);
+border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin-bottom:8px}
+.ch-card .work-poster{width:54px;height:81px;border-radius:5px;object-fit:cover}
+.ch-card h3{margin:0;font-size:15.5px;color:var(--fg)}
+.ch-card h3 .r{color:var(--accent);margin-right:6px;font-variant-numeric:tabular-nums}
+.ch-facts{margin:3px 0 0;color:var(--dim);font-size:13px}
+.ch-card .pv-line{font-size:14px;margin-top:6px}
+.ch-card .chips{margin-top:6px}
 /* ── 작품 찾기 필터 ── select 네 개 + 해제. 켜진 필터가 없으면 해제 버튼을 숨긴다 ── */
 .filters{display:grid;grid-template-columns:repeat(4,minmax(0,1fr)) auto;gap:6px;margin-top:8px}
 select{width:100%;min-width:0;padding:7px 8px;font-size:14px;color:var(--fg);background:var(--card);
