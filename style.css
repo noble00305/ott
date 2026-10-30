@@ -259,6 +259,12 @@ a.chip:hover{border-color:var(--accent);color:var(--accent)}
 .chip small{color:var(--dim);font-size:12px;margin-left:3px}
 .watch .via{color:var(--dim);font-size:12px;margin-top:6px;overflow-wrap:anywhere}
 .watch .none{color:var(--faint);font-size:13.5px}
+/* ── 출연진 (10-30) ── 넷플릭스 한국 표기 그대로 · 배역 없음 ── */
+.cast{margin:12px 0 4px}
+.cast h3{margin:0 0 6px}
+.cast-list{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:4px 10px}
+.cast-list li{font-size:14px;padding:3px 0;border-bottom:1px solid var(--line);overflow-wrap:anywhere}
+.cast .via{color:var(--dim);font-size:12px;margin-top:6px;overflow-wrap:anywhere}
 /* ── 미리보기 ── 공식 줄거리 기반 1인칭 한 줄(09-28 사용자 「본 것 같은 느낌」). 직접 본 후기가 아님을 늘 밝힌다 ── */
 .preview{background:var(--card);border-left:3px solid var(--accent);border-radius:8px;padding:10px 14px;margin:12px 0}
 .pv-line{margin:0;font-size:15.5px;line-height:1.65}
