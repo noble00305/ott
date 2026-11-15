@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="robots" content="noindex,nofollow">
+<meta name="viewport" content="width=device-width,initial-scale=1"><title>이동 중…</title>
+<script>
+(function(){
+  var p=new URLSearchParams(location.search), c=(p.get('c')||'blog').replace(/[^\w-]/g,'').slice(0,40);
+  var dest='https://partners.ajl.to/lead/internet?partnerId=1ZDXLD83&utm_source=naverblog&utm_medium=post&utm_campaign='+c;
+  var done=false; function go(){ if(!done){done=true; location.replace(dest);} }
+  window.goatcounter={no_onload:true};
+  var s=document.createElement('script'); s.async=true; s.src='//gc.zgo.at/count.js';
+  s.setAttribute('data-goatcounter','https://noble003.goatcounter.com/count');
+  s.onload=function(){ try{ window.goatcounter.count({path:'ajd-blog-'+c, title:'블로그→아정당 '+c, event:true}); }catch(e){} setTimeout(go,350); };
+  s.onerror=go; document.head.appendChild(s); setTimeout(go,1500);
+})();
+</script></head>
+<body style="font-family:sans-serif;padding:40px;text-align:center">상담 페이지로 이동하고 있습니다… <a id="l" href="https://partners.ajl.to/lead/internet?partnerId=1ZDXLD83&utm_source=naverblog">바로 가기</a></body></html>
