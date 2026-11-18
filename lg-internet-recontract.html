@@ -66,6 +66,7 @@ function calc(){
  else{res=giftOn?'move':'compare';
   v=mode==='move'?('지금 옮기면 최소 '+W(cost)+'이 듭니다.'+(giftOn?' 사은품 1년 조건 때문에 이전설치가 대개 유리합니다.':'')):('지금 해지하면 '+W(cost)+'이 듭니다. 약정 끝(약 '+mo+'개월 뒤)까지 기다리면 이 비용 없이 비교할 수 있습니다.');
   todo.appendChild(li('약정 만료일을 고객센터 '+CC[isp]+'에서 확인해 둡니다','만료 두세 달 전부터 재약정·신규 조건을 받아 볼 수 있습니다.'));}
+ if(mode==='move'&&res==='move'&&R.dataset.mvq){var q=li('이사 날짜가 정해졌다면 포장이사 견적도 같이 받아 둡니다','인터넷 이전 날짜는 이사 날짜에 맞춰 잡습니다. 가정집 포장이사 기준 · 원룸·용달은 받지 않는 곳입니다.');var a=document.createElement('a');a.href=R.dataset.mvq;a.rel='sponsored nofollow noopener';a.textContent='포장이사 견적 비교 받기 (위매치다이사) →';a.setAttribute('data-goatcounter-click','mvq-calc-'+R.dataset.slug);a.setAttribute('data-goatcounter-title','계산 결과(이전) → 이사 견적');a.addEventListener('click',function(){ev('mvq-calc-'+R.dataset.slug,'계산 결과(이전) → 이사 견적')});q.appendChild(a);todo.appendChild(q)}
  $('mc-v').textContent=v;$('mc-out').hidden=false;
  if(!sent[res]){sent[res]=1;ev('calc-move-result-'+res,'이사·약정 계산 결과 '+res+' ('+R.dataset.slug+')')}
 }
